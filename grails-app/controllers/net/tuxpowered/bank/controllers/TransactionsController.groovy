@@ -4,6 +4,8 @@ import net.tuxpowered.bank.domain.User;
 
 class TransactionsController {
 
+	def transactionsService
+	
     def index = { 
 		redirect(action:'transactions')
 	}
@@ -13,6 +15,7 @@ class TransactionsController {
 	}
 	
 	def registerPayment = {
+		transactionsService.registerPayment(params)
 		flash.message = "Transaction was successful"
 		redirect(action: 'transactions')
 	}
