@@ -5,9 +5,10 @@
     </head>
     <body>
 		<div>
-			<h2>Pay</h2>
-			<br/>
+			<h2>Transactions</h2>
+			<div class="errors">
 			[ errors go here ]
+			</div>
 			<b>Person:</b>  [ from Account.list() ] <---- dropdown
 			<br/>
 			<b>[ submit ]</b>

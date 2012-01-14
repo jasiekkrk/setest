@@ -4,9 +4,11 @@
         <meta name="layout" content="main" />
     </head>
     <body>
-		[ errors go here ]
 		<div>
 			<h2>Pay</h2>
+			<div class="errors">
+				[ errors go here ]
+			</div>
 			<br/>
 			<b>From:</b>  [ from Account.list() ] <---- dropdown
 			<br/>

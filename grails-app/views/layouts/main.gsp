@@ -9,7 +9,7 @@
         <div id="spinner" class="spinner" style="display:none;">
             <img src="${resource(dir:'images',file:'spinner.gif')}" alt="${message(code:'spinner.alt',default:'Loading...')}" />
         </div>
-            <body>
+            
         <div id="nav">
 			      	<g:link controller="transactions" action="pay"><g:message code="nav.pay.label" default="Pay"></g:message> </g:link>
 			      	| 
@@ -18,6 +18,5 @@
         <div id="pageBody">
         	<g:layoutBody/>
         </div>
-    </body>
     </body>
 </html>
