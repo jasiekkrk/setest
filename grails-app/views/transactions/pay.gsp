@@ -10,13 +10,20 @@
 				[ errors go here ]
 			</div>
 			<br/>
-			<b>From:</b>  [ from Account.list() ] <---- dropdown
-			<br/>
-			<b>To:  </b>  [ from Account.list() ] <---- dropdown
-			<br/>
-			<b>Amount:</b> [ text input ]  
-			<br/>
-			<b>[ submit ]</b>
+			<g:form action="registerPayment" controller="transactions">
+				<b>From:</b>
+				<g:select from="${users}" name="senderAccount" optionValue="${{it.name+' / avail: '+it.balance}}" optionKey="id"></g:select>
+				<br/>
+				<b>To:</b>
+				<g:select from="${users}" name="toAccount" optionValue="name" optionKey="id"></g:select>
+				<br/>
+				<b>Amount:</b>
+				<g:textField name="amount"></g:textField>  
+				<br/>
+				<b>
+				<g:actionSubmit value="Submit" action="registerPayment"></g:actionSubmit>
+				</b>
+			</g:form>
         </div>
     </body>
 </html>
