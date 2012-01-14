@@ -3,20 +3,22 @@ package net.tuxpowered.bank.controllers
 import grails.test.*
 
 class TransactionsControllerTests extends ControllerUnitTestCase {
-	
-	protected  void setUp(){
-		
-	}
-	
-	protected void tearDown() {
-	}
-	
-    void testIfDoRedirect() {
-		assert true
+    protected void setUp() {
+        super.setUp()
+    }
+
+    protected void tearDown() {
+        super.tearDown()
+    }
+
+	void testIfDoRedirect() {
+		controller.index()
+		assert "transactions".equals(controller.redirectArgs.action)
     }
 	
 	void testIfRegisterPayment() {
-		assert true
+		controller.registerPayment()
+		assert "Transaction was successful".equals(controller.flash.message)
+		assert "transactions".equals(controller.redirectArgs.action)
 	}
-	
 }
