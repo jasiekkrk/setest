@@ -13,7 +13,8 @@ class TransactionsController {
 	}
 	
 	def registerPayment = {
-		
+		flash.message = "Transaction was successful"
+		redirect(action: transactions)
 	}
 	
 	def pay = {

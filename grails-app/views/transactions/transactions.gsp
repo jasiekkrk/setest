@@ -6,6 +6,9 @@
     <body>
 		<div>
 			<h2>Transactions</h2>
+			<g:if test="${flash.message}">
+				${flash.message.encodeAsHTML()}
+			</g:if>
 			<div class="errors">
 			[ errors go here ]
 			</div>
