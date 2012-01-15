@@ -18,6 +18,10 @@ class TransactionsService {
 		if(!result.errors)
 			result.errors = doPayment( from, to, paramz)
 		
+		if(!result.errors){
+			sendMailToUser(from)
+			sendMailToUser(to)
+		}
 
 		return result
 		
@@ -68,6 +72,14 @@ class TransactionsService {
 			recipientLogEntry.save(flush:true)
 		}
 		return errors?.flatten()		
+	}
+	
+	private def sendMailToUser(to){
+		sendMail {
+			to "${to.email}"
+			subject "New transaction"
+			body 'Your transaction is completed'
+		  }
 	}
 	
 }
