@@ -11,13 +11,17 @@ class TransactionsController {
 	}
 	
 	def transactions = {
-		
+		def users = User.list()
+		[users: users]
 	}
 	
 	def registerPayment = {
-		transactionsService.registerPayment(params)
-		flash.message = "Transaction was successful"
-		redirect(action: 'transactions')
+		def result = transactionsService.registerPayment(params)
+		flash.message  = result.message
+		if(result.errors)
+			render(view: 'pay', model:[result: result, users: User.list()])
+		else
+			redirect(action: 'transactions', selectedAccount: params.senderAccount)
 	}
 	
 	def pay = {

@@ -6,16 +6,23 @@
     <body>
 		<div>
 			<h2>Pay</h2>
-			<div class="errors">
-				[ errors go here ]
-			</div>
+			<g:if test="${result?.errors }">
+			We cannot complete your request due to following errors:
+				<div class="errors">
+					<ul>
+					<g:each in="${result.errors}" var="error">
+						<li>${error.encodeAsHTML()}</li>	
+					</g:each>
+					</ul>
+				</div>
+			</g:if>
 			<br/>
 			<g:form action="registerPayment" controller="transactions">
 				<b>From:</b>
-				<g:select from="${users}" name="senderAccount" optionValue="${{it.name+' / avail: '+it.balance}}" optionKey="id"></g:select>
+				<g:select from="${users}" name="senderAccount" optionValue="${{it.name+' / avail: '+it.balance}}" optionKey="id" value="${params?.senderAccount}"></g:select>
 				<br/>
 				<b>To:</b>
-				<g:select from="${users}" name="toAccount" optionValue="name" optionKey="id"></g:select>
+				<g:select from="${users}" name="toAccount" optionValue="name" optionKey="id" value="${params?.toAccount}"></g:select>
 				<br/>
 				<b>Amount:</b>
 				<g:textField name="amount"></g:textField>  

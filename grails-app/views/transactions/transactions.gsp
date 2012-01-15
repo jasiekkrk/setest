@@ -12,9 +12,11 @@
 			<div class="errors">
 			[ errors go here ]
 			</div>
-			<b>Person:</b>  [ from Account.list() ] <---- dropdown
+			<g:form action="transactions">
+			<b>Person:</b>  <g:select from="${users}" name="selectedAccount" optionValue="${{it.name+' / avail: '+it.balance}}" optionKey="id" value="${params?.selectedAccount}"></g:select>
 			<br/>
-			<b>[ submit ]</b>
+			<b><g:actionSubmit value="Select"></g:actionSubmit> </b>
+			</g:form>
 			------------------------------------------------------
 			<div>Balance: [amount]</div>
 			<div>some awesome table with transaction amounts</div>
