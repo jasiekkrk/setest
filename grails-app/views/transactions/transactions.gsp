@@ -2,6 +2,7 @@
     <head>
         <title>See transactions</title>
         <meta name="layout" content="main" />
+        <g:javascript library="views/transactions"/>
     </head>
     <body>
 		<div>
@@ -10,16 +11,20 @@
 				${flash.message.encodeAsHTML()}
 			</g:if>
 			<div class="errors">
-			[ errors go here ]
+			
 			</div>
-			<g:form action="transactions">
-			<b>Person:</b>  <g:select from="${users}" name="selectedAccount" optionValue="${{it.name+' / avail: '+it.balance}}" optionKey="id" value="${params?.selectedAccount}"></g:select>
-			<br/>
-			<b><g:actionSubmit value="Select"></g:actionSubmit> </b>
-			</g:form>
-			------------------------------------------------------
-			<div>Balance: [amount]</div>
-			<div>some awesome table with transaction amounts</div>
+			<div>
+			<form id="account_selector_form">
+				<b>Person:</b>  <g:select id="selectedAccount" from="${users}" name="selectedAccount" optionValue="${{it.name+' / avail: '+it.balance}}" optionKey="id" value="${params?.selectedAccount}"></g:select>
+				<br/>
+			</form>
+			<b><input type="button" id="show_transactions" value="Show"/></b>
+			</div>
+			<div id="transaction_log_placeholder">
+			</div>
         </div>
+        <script type="text/javascript">
+        	net.tuxpowered.funbank.views.Transactions.config.showTransactionsLink = "${createLink(action:'showTransactions', controller: 'transactions')}";
+        </script>
     </body>
 </html>

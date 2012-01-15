@@ -3,6 +3,8 @@
     <head>
         <title><g:layoutTitle default="Grails" /></title>
         <link href="${resource(dir:'css',file:'main.css')}" media="screen" rel="stylesheet" type="text/css">
+        <g:javascript library="jquery" />
+        <g:javascript library="namespace"/>
         <g:layoutHead />
     </head>
     <body>

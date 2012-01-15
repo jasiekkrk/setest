@@ -2,3 +2,28 @@
 .errors li {
 	color: red;
 }
+
+table {
+	border-width: 1px;
+	border-spacing: 0px;
+	border-style: outset;
+	border-color: gray;
+	border-collapse: separate;
+	background-color: white;
+}
+table th {
+	border-width: 1px;
+	padding: 3px;
+	border-style: dotted;
+	border-color: gray;
+	background-color: rgb(250, 240, 230);
+	-moz-border-radius: ;
+}
+table td {
+	border-width: 1px;
+	padding: 3px;
+	border-style: dotted;
+	border-color: gray;
+	background-color: rgb(250, 240, 230);
+	-moz-border-radius: ;
+}
