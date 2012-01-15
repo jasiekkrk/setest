@@ -8,8 +8,6 @@ class TransactionLog {
 	
 	static belongsTo = User
 	
-	static fetchMode = [transaction:"join"]
-	
 	static mapping = {
 	}
 	
