@@ -1,5 +1,7 @@
 package net.tuxpowered.bank.services
 
+import org.springframework.validation.ObjectError;
+
 import net.tuxpowered.bank.domain.Transaction;
 import net.tuxpowered.bank.domain.TransactionLog;
 import net.tuxpowered.bank.domain.User;
@@ -10,7 +12,8 @@ class TransactionsService {
 
     def registerPayment(paramz) {
 		def result= [errors: [], message: '']
-			
+		
+		//could do pessimistic locking instead with lock(id)			
 		def from = User.get(paramz.senderAccount)
 		def to = User.get(paramz.toAccount)
 		
@@ -30,14 +33,14 @@ class TransactionsService {
 	
 	private def validate(from, to, paramz){
 		def errors = []
-		if(!from || !to){
-			errors << "Invalid users"
+		if(!from || !to || (from.id == to.id)){
+			errors << new ObjectError('Transaction', "Invalid users")
 		}
 		
 		if(!paramz.amount || !paramz.amount.isBigDecimal())
-			errors << "Invalid amount"
+			errors << new ObjectError('Transaction', "Invalid amount")
 		else if(from.balance < paramz.amount.toBigDecimal()){
-			errors << "Amount too big"
+			errors << new ObjectError('Transaction', "Amount too big")
 		}
 		return errors
 	}

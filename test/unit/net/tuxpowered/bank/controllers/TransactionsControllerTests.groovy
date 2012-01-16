@@ -14,7 +14,7 @@ class TransactionsControllerTests extends ControllerUnitTestCase {
 
 	void testIfDoRedirect() {
 		controller.index()
-		assert "transactions".equals(controller.redirectArgs.action)
+		assert "pay".equals(controller.redirectArgs.action)
     }
 	
 	void testIfRegisterPayment() {
@@ -29,6 +29,7 @@ class TransactionsControllerTests extends ControllerUnitTestCase {
 		
 		//assert
 		assert "Transaction was successful".equals(controller.flash.message)
-		assert "transactions".equals(controller.redirectArgs.action)
+		assert "index".equals(controller.redirectArgs.action)
+		assert "transactionsHistory".equals(controller.redirectArgs.controller)
 	}
 }

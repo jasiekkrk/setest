@@ -11,7 +11,7 @@
 				<div class="errors">
 					<ul>
 					<g:each in="${result.errors}" var="error">
-						<li>${error.encodeAsHTML()}</li>	
+						<li><g:message error="${error}"/></li>	
 					</g:each>
 					</ul>
 				</div>

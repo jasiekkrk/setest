@@ -15,7 +15,7 @@
         <div id="nav">
 			      	<g:link controller="transactions" action="pay"><g:message code="nav.pay.label" default="Pay"></g:message> </g:link>
 			      	| 
-			      	<g:link controller="transactions" action="transactions"><g:message code="nav.transactions.label" default="Transactions"></g:message> </g:link>
+			      	<g:link controller="transactionsHistory" action="index"><g:message code="nav.transactions.label" default="Transactions"></g:message> </g:link>
         </div>
         <div id="pageBody">
         	<g:layoutBody/>

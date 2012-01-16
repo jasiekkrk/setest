@@ -24,7 +24,7 @@
 			</div>
         </div>
         <script type="text/javascript">
-        	net.tuxpowered.funbank.views.Transactions.config.showTransactionsLink = "${createLink(action:'showTransactions', controller: 'transactions')}";
+        	net.tuxpowered.funbank.views.Transactions.config.showTransactionsLink = "${createLink(action:'showTransactions', controller: 'transactionsHistory')}";
         </script>
     </body>
 </html>

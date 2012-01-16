@@ -13,10 +13,10 @@
 <tbody>
 <g:each in="${result}" var="transactionItem">
 <tr>
-	<td><g:formatDate date="${transactionItem.transaction.dateCreated}" format="yyyy-MM-dd"></g:formatDate></td>
-	<td>${transactionItem.transaction?.sender?.name.encodeAsHTML()}</td>
-	<td>${transactionItem.transaction?.recipient?.name.encodeAsHTML()}</td>
-	<td>${transactionItem.transaction?.amount?.encodeAsHTML()}</td>
+	<td><g:formatDate date="${transactionItem.transactionDate}" format="yyyy-MM-dd"></g:formatDate></td>
+	<td>${transactionItem.senderName.encodeAsHTML()}</td>
+	<td>${transactionItem.recipientName.encodeAsHTML()}</td>
+	<td>${transactionItem.transactionAmount?.encodeAsHTML()}</td>
 	<td>${transactionItem.amountAfter.encodeAsHTML()}</td>
 </tr>
 </g:each>
